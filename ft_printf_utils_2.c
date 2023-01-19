@@ -16,7 +16,7 @@ void	ft_printuint(void *arg)
 {
 	char	*c;
 
-	c = ft_itoa((unsigned int)arg);
+	c = ft_itoa((uintptr_t)arg);
 	ft_putstr_fd(c, 1);
 }
 
@@ -24,7 +24,7 @@ void	ft_printhexlow(void *arg)
 {
 	char	*c;
 
-	c = ft_convert_base10_to_hex_lower((int)arg);
+	c = ft_convert_base10_to_hex_lower((uintptr_t)arg);
 	ft_putstr_fd(c, 1);
 }
 
@@ -32,7 +32,7 @@ void	ft_printhexup(void *arg)
 {
 	char	*c;
 
-	c = ft_convert_base10_to_hex((int)arg);
+	c = ft_convert_base10_to_hex((intptr_t)arg);
 	ft_putstr_fd(c, 1);
 }
 

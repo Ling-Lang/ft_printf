@@ -14,7 +14,7 @@
 
 void	ft_printchar(void *arg)
 {
-	ft_putchar_fd((char)arg, 1);
+	ft_putchar_fd((intptr_t)arg, 1);
 }
 
 void	ft_printstr(void *arg)
@@ -24,13 +24,13 @@ void	ft_printstr(void *arg)
 
 void	ft_printptr(void *arg)
 {
-	ft_putstr_fd((char *)arg, 1);
+	ft_printhexlow(arg);
 }
 
 void	ft_printint(void *arg)
 {
 	char	*c;
 
-	c = ft_itoa((int)arg);
+	c = ft_itoa((intptr_t)arg);
 	ft_putstr_fd(c, 1);
 }

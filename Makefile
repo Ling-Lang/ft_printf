@@ -15,23 +15,24 @@ MAND = ft_printf.c \
 MANDOBJ	= $(MAND:.c=.o)
 
 $(NAME): $(MANDOBJ) | lft
-	cp libft/libft.a $@
-	@$(AR) $(ARFLAGS) $@ $^
+	cp Libft/libft.a $@
+	$(AR) $(ARFLAGS) $@ $^
 
 lft:
-	@(cd libft && make && make clean)
+	(cd Libft && make && make clean)
 
 %.o : %.c lft
-	@$(CC) -c $(CFLAGS) $(INCFLAG) $< -o $@
+	$(CC) -c $(CFLAGS) $(INCFLAG) $< -o $@
 
 debug:
-	$(CC) $(CFLAGS) libft.a $(MAND)
+	$(CC) $(CFLAGS) $(MAND) libft.a
 
 clean:
-	- @$(RM) $(MANDOBJ)
+	$(RM) $(MANDOBJ)
 
 fclean: clean
-	- @$(RM) ${NAME}
+	$(RM) ${NAME}
+	$(RM) libft.a
 
 re: fclean all
 

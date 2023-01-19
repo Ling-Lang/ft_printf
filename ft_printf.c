@@ -21,6 +21,7 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	char	*string;
 	int		i;
+	int c = 0;
 
 	i = 0;
 	va_start(args, str);
@@ -29,24 +30,29 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			if (str[i + 1] == '%')
-			{
+			if (str[i + 1] == '%' && str[i + 2] != '%')
 				ft_printpercent();
-			}
 			i++;
 			ft_checkarg(str[i], string);
 			string = va_arg(args, char *);
 			i++;
+			c++;
 		}
 		if (str[i] == '\0')
-			return (i - 1);
+		{
+			
+			return (c);
+		}
 		ft_printnext((char *)str, &i);
+		c++;
 	}
-	return (i - 1);
+	va_end(args);
+	return (c);
 }
 
 void	ft_checkarg(const char c, void *arg)
 {
+	// *count+=1;
 	if (c == 'c')
 		ft_printchar(arg);
 	else if (c == 's')
@@ -75,7 +81,10 @@ int	ft_printnext(char *str, int *i)
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	ft_printf("the char is: %c\n\th%s", 'a', "Hello");
-// 	ft_printf("That's a percent sign %% and thats %%c", 'c');
+// 	// ft_printf("the char is: %c\n\th%s", 'a', "Hello");
+// 	// ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c');
+// 	printf("ft_printf return:\t%i\n", ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
+// 	// printf("printf:\t\tThat's a percent sign %% and thats %%%c\n", 'c');
+// 	printf("printf return:\t%i", printf("\nPrintf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
 // 	return (0);
 // }
