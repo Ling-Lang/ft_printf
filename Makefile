@@ -1,25 +1,34 @@
 NAME = libftprintf.a
 
 RM = rm -f
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR		= ar
 ARFLAGS = -rcs
-INCFLAG	= -I .
+INCFLAG	= -I include -I libft
 
-MANDO = ft_printf.c \
+MAND = ft_printf.c \
+		ft_printf_utils.c \
+		ft_printf_utils_2.c \
+		ft_dectohex.c \
 
-MANDOOBJ	= $(MANDO:.c=.o)
+MANDOBJ	= $(MAND:.c=.o)
 
-$(NAME): $(MANDOOBJ)
+$(NAME): $(MANDOBJ) | lft
+	cp libft/libft.a $@
 	@$(AR) $(ARFLAGS) $@ $^
 
+lft:
+	@(cd libft && make && make clean)
 
-%.o : %.c
+%.o : %.c lft
 	@$(CC) -c $(CFLAGS) $(INCFLAG) $< -o $@
 
+debug:
+	$(CC) $(CFLAGS) libft.a $(MAND)
+
 clean:
-	- @$(RM) $(MANDOOBJ)
+	- @$(RM) $(MANDOBJ)
 
 fclean: clean
 	- @$(RM) ${NAME}

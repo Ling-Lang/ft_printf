@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dectohex.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 09:39:30 by jkulka            #+#    #+#             */
-/*   Updated: 2022/11/25 10:22:22 by jkulka           ###   ########.fr       */
+/*   Created: 2022/10/24 11:24:03 by jkulka            #+#    #+#             */
+/*   Updated: 2022/11/21 13:12:04 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_printf.h"
 
-char	*ft_dectohex(long decimalnum)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	long	quotient;
-	long	remainder;
+	char	*str;
 	int		i;
 	int		j;
-	char	*hexadecimalnum;
 
-	quotient = decimalnum;
-	i = 0;
-	j = 0;
-	while (quotient != 0)
+	if (!s1)
+		return (NULL);
+	str = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	if (!s1 || !s2 || !(str))
 	{
-		remainder = quotient % 16;
-		if (remainder < 10)
-			hexadecimalnum[j++] = 48 + remainder;
-		else
-			hexadecimalnum[j++] = 55 + remainder;
-		quotient = quotient / 16;
+		return (0);
 	}
-	// i = j;
-	// while (i >= 0)
-	// {
-	// 	ft_putchar_fd(hexadecimalnum[i], 1);
-	// 	i--;
-	// }
-	return (hexadecimalnum);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
 }
