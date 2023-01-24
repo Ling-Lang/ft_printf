@@ -1,4 +1,5 @@
 NAME = libftprintf.a
+BIN_NAME = ft_prinf.test
 
 RM = rm -f
 CC = gcc
@@ -6,6 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR		= ar
 ARFLAGS = -rcs
 INCFLAG	= -I include -I libft
+LIBFT 	= libft
 
 MAND = ft_printf.c \
 		ft_printf_utils.c \
@@ -15,27 +17,31 @@ MAND = ft_printf.c \
 MANDOBJ	= $(MAND:.c=.o)
 
 $(NAME): $(MANDOBJ) | lft
-	cp Libft/libft.a $@
+	cp libft/libft.a .
 	$(AR) $(ARFLAGS) $@ $^
+	rm libft.a
 
 lft:
-	(cd Libft && make && make clean)
+	(cd $(LIBFT) && make && make clean)
 
 %.o : %.c lft
 	$(CC) -c $(CFLAGS) $(INCFLAG) $< -o $@
 
-debug:
-	$(CC) $(CFLAGS) $(MAND) libft.a
+debug: $(MANDOBJ) | lft
+	cp libft/libft.a .
+	$(CC) libft.a $(CFLAGS) $(MANDOBJ) -o $(BIN_NAME)
+	rm libft.a
+	rm $(MANDOBJ)
 
 clean:
 	$(RM) $(MANDOBJ)
 
 fclean: clean
-	$(RM) ${NAME}
+	$(RM) $(NAME) $(BIN_NAME)
 	$(RM) libft.a
 
 re: fclean all
 
-all: $(NAME) bonus
+all: $(NAME)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

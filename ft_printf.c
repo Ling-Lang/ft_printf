@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/01/19 11:48:00 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/01/24 11:59:31 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ int	ft_printnext(char *str, int *i)
 	return (*i);
 }
 
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	// ft_printf("the char is: %c\n\th%s", 'a', "Hello");
-// 	// ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c');
-// 	printf("ft_printf return:\t%i\n", ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
-// 	// printf("printf:\t\tThat's a percent sign %% and thats %%%c\n", 'c');
-// 	printf("printf return:\t%i", printf("\nPrintf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
-// 	return (0);
-// }
+#include <stdio.h>
+int	main(void)
+{
+	// ft_printf("the char is: %c\n\th%s", 'a', "Hello");
+	// ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c');
+	printf("ft_printf return:\t%i\n", ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
+	// printf("printf:\t\tThat's a percent sign %% and thats %%%c\n", 'c');
+	printf("printf return:\t%i", printf("\nPrintf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
+	return (0);
+}

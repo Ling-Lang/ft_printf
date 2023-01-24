@@ -6,13 +6,13 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:46:44 by jkulka            #+#    #+#             */
-/*   Updated: 2022/12/09 11:12:01 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/01/24 11:47:59 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "Libft/src/libft.h"
+# include "libft/src/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
