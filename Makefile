@@ -17,9 +17,9 @@ MAND = ft_printf.c \
 MANDOBJ	= $(MAND:.c=.o)
 
 $(NAME): $(MANDOBJ) | lft
-	cp libft/libft.a .
+	cp libft/libft.a $@
 	$(AR) $(ARFLAGS) $@ $^
-	rm libft.a
+	# rm libft.a
 
 lft:
 	(cd $(LIBFT) && make && make clean)

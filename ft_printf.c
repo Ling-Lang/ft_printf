@@ -6,14 +6,14 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/01/24 11:59:31 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/01/24 12:58:29 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printnext(char *str, int *i);
-void	ft_checkarg(const char c, void *arg);
+int		ft_printnext(char *str, int *i);
+void	ft_checkarg(const char c, void *arg, int *count);
 char	*ft_convert_base10_to_hex(int base10_num);
 
 int	ft_printf(const char *str, ...)
@@ -31,18 +31,17 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			if (str[i + 1] == '%' && str[i + 2] != '%')
+			{
 				ft_printpercent();
+				c++;
+			}
 			i++;
-			ft_checkarg(str[i], string);
+			ft_checkarg(str[i], string, &c);
 			string = va_arg(args, char *);
 			i++;
-			c++;
 		}
 		if (str[i] == '\0')
-		{
-			
 			return (c);
-		}
 		ft_printnext((char *)str, &i);
 		c++;
 	}
@@ -50,13 +49,12 @@ int	ft_printf(const char *str, ...)
 	return (c);
 }
 
-void	ft_checkarg(const char c, void *arg)
+void	ft_checkarg(const char c, void *arg, int *count)
 {
-	// *count+=1;
 	if (c == 'c')
-		ft_printchar(arg);
+		ft_printchar(arg, count);
 	else if (c == 's')
-		ft_printstr(arg);
+		ft_printstr(arg, count);
 	else if (c == 'p')
 		ft_printptr(arg);
 	else if (c == 'd')
@@ -78,13 +76,12 @@ int	ft_printnext(char *str, int *i)
 	return (*i);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	// ft_printf("the char is: %c\n\th%s", 'a', "Hello");
-	// ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c');
-	printf("ft_printf return:\t%i\n", ft_printf("ft_printf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
-	// printf("printf:\t\tThat's a percent sign %% and thats %%%c\n", 'c');
-	printf("printf return:\t%i", printf("\nPrintf:\tThat's a percent sign %% and thats %%%c\n", 'c'));
-	return (0);
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int result_ft = ft_printf("Hello %s", "World");
+// 	int result = printf("Hello %s", "World");
+	
+// 	printf("\n\nft_printf %i\nprintf\t%i",result_ft,result);
+// 	return (0);
+// }
