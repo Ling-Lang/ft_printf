@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/01/24 12:58:29 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/01/31 13:18:08 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			if (str[i + 1] == '%' && str[i + 2] != '%')
+			if (str[i + 1] == '%')
 			{
-				ft_printpercent();
+				if (str[i+2] != '%')
+				{
+					ft_printpercent();
+					c++;
+				}
 				c++;
 			}
 			i++;
@@ -52,15 +56,15 @@ int	ft_printf(const char *str, ...)
 void	ft_checkarg(const char c, void *arg, int *count)
 {
 	if (c == 'c')
-		ft_printchar(arg, count);
+		ft_printchar(arg, count); 
 	else if (c == 's')
 		ft_printstr(arg, count);
 	else if (c == 'p')
 		ft_printptr(arg);
 	else if (c == 'd')
-		ft_printint(arg);
+		ft_printint(arg, count);
 	else if (c == 'i')
-		ft_printint(arg);
+		ft_printint(arg, count);
 	else if (c == 'u')
 		ft_printuint(arg);
 	else if (c == 'x')
@@ -79,9 +83,11 @@ int	ft_printnext(char *str, int *i)
 // #include <stdio.h>
 // int	main(void)
 // {
-// 	int result_ft = ft_printf("Hello %s", "World");
-// 	int result = printf("Hello %s", "World");
-	
-// 	printf("\n\nft_printf %i\nprintf\t%i",result_ft,result);
+
+// 	// ft_printf("%%%%%%%%%%%%%%%%");
+// 	ft_printf("%c%c%c*", '\0', '1', 1);
+// 	ft_putendl_fd("\n", 1);
+// 	// printf("%%%%%%%%%%%%%%%%");
+// 	printf("%c%c%c*", '\0', '1', 1);
 // 	return (0);
 // }
