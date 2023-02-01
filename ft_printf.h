@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:46:44 by jkulka            #+#    #+#             */
-/*   Updated: 2023/01/25 12:52:14 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:59:11 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	ft_printuint(void *arg);
 void	ft_printhexlow(void *arg);
 void	ft_printhexup(void *arg);
 void	ft_printpercent(void);
+void print_pointer(void *ptr);
 #endif

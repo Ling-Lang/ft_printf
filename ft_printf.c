@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/01/31 13:18:08 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/02/01 12:03:25 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_checkarg(const char c, void *arg, int *count)
 	else if (c == 's')
 		ft_printstr(arg, count);
 	else if (c == 'p')
-		ft_printptr(arg);
+		print_pointer((void *)arg);
 	else if (c == 'd')
 		ft_printint(arg, count);
 	else if (c == 'i')
@@ -80,14 +80,17 @@ int	ft_printnext(char *str, int *i)
 	return (*i);
 }
 
-// #include <stdio.h>
-// int	main(void)
-// {
-
-// 	// ft_printf("%%%%%%%%%%%%%%%%");
-// 	ft_printf("%c%c%c*", '\0', '1', 1);
-// 	ft_putendl_fd("\n", 1);
-// 	// printf("%%%%%%%%%%%%%%%%");
-// 	printf("%c%c%c*", '\0', '1', 1);
-// 	return (0);
-// }
+#include <stdio.h>
+int	main(void)
+{
+	int i = 10;
+	int *ptr = &i;
+	// ft_printf("%%%%%%%%%%%%%%%%");
+	// ft_printf("%c%c%c*", '\0', '1', 1);
+	ft_printf("my_printf:\nAddress of i value = %i is %p", i, ptr);
+	ft_putendl_fd("\n", 1);
+	// printf("%%%%%%%%%%%%%%%%");
+	printf("printf:\nAddress of i value = %i is %p", i, ptr);
+	// printf("%c%c%c*", '\0', '1', 1);
+	return (0);
+}
