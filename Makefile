@@ -8,6 +8,7 @@ AR		= ar
 ARFLAGS = -rcs
 INCFLAG	= -I include -I libft
 LIBFT 	= libft
+TESTER 	= ft_printf_tester
 
 MAND = ft_printf.c \
 		ft_printf_utils.c \
@@ -32,6 +33,9 @@ debug: $(MANDOBJ) | lft
 	$(CC) libft.a $(CFLAGS) $(MANDOBJ) -o $(BIN_NAME)
 	rm libft.a
 	rm $(MANDOBJ)
+
+test:
+	sh test.sh	
 
 clean:
 	$(RM) $(MANDOBJ)

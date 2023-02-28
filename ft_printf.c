@@ -60,9 +60,9 @@ void	ft_checkarg(const char c, void *arg, int *count)
 	else if (c == 's')
 		ft_printstr(arg, count);
 	else if (c == 'p')
-		print_pointer((void *)arg);
+		ft_printptr((void *)arg);
 	else if (c == 'd')
-		ft_printint(arg, count);
+  ft_printptr(arg);
 	else if (c == 'i')
 		ft_printint(arg, count);
 	else if (c == 'u')
@@ -77,20 +77,12 @@ int	ft_printnext(char *str, int *i)
 {
 	ft_putchar_fd(str[*i], 1);
 	*i += 1;
-	return (*i);
+  return (*i);
 }
 
 #include <stdio.h>
 int	main(void)
 {
-	int i = 10;
-	int *ptr = &i;
-	// ft_printf("%%%%%%%%%%%%%%%%");
-	// ft_printf("%c%c%c*", '\0', '1', 1);
-	ft_printf("my_printf:\nAddress of i value = %i is %p", i, ptr);
-	ft_putendl_fd("\n", 1);
-	// printf("%%%%%%%%%%%%%%%%");
-	printf("printf:\nAddress of i value = %i is %p", i, ptr);
-	// printf("%c%c%c*", '\0', '1', 1);
-	return (0);
+  ft_printf("hello WOrld");
+ return (0);
 }
