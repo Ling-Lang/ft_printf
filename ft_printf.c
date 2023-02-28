@@ -80,9 +80,9 @@ int	ft_printnext(char *str, int *i)
   return (*i);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-  ft_printf("hello WOrld");
- return (0);
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+//   ft_printf("hello WOrld");
+//  return (0);
+//  }
