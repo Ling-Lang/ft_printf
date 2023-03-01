@@ -20,7 +20,7 @@
 int		ft_printf(const char *str, ...);
 char	*ft_convert_base10_to_hex(int base10_num);
 char	*ft_convert_base10_to_hex_lower(int base10_num);
-void	ft_printchar(void *arg, int *count);
+int	ft_printchar(char arg, int count);
 void	ft_printstr(void *arg, int *count);
 void	ft_printptr(void *arg);
 void	ft_printint(void *arg, int *count);

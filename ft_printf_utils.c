@@ -12,10 +12,11 @@
 
 #include "ft_printf.h"
 
-void	ft_printchar(void *arg, int *count)
+int	ft_printchar(char arg, int count)
 {
-	*count += 1;
-	ft_putchar_fd((intptr_t)arg, 1);
+	count += 1;
+	ft_putchar_fd((char)arg, 1);
+  return (count);
 }
 
 void	ft_printstr(void *arg, int *count)
