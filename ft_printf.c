@@ -24,7 +24,7 @@ void ft_parse_string(char *str, va_list *arg, int *count);
 //   int c = 0;
 //
 //   i = 0;
-//   va_start(args, str);
+//   va_start(args, str)
 //   string = va_arg(args, char *);
 //   while (str)
 //   {
