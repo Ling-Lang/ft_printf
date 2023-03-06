@@ -6,37 +6,41 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:03:08 by jkulka            #+#    #+#             */
-/*   Updated: 2023/02/07 10:01:49 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:42:46 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printchar(char arg, int count)
+#include <stdio.h>
+int	ft_printchar(char arg)
 {
-	count += 1;
-	ft_putchar_fd((char)arg, 1);
-  return (count);
+	ft_putchar_fd(arg, 1);
+  return (1);
 }
 
-void	ft_printstr(void *arg, int *count)
+int	ft_printstr(char *arg)
 {
-	*count += ft_strlen((char *)arg);
-	ft_putstr_fd((char *)arg, 1);
+  if(arg == NULL)
+  {
+	ft_putstr_fd("(null)", 1);
+	return 6;
+  }
+
+	ft_putstr_fd(arg, 1);
+  return ((int)ft_strlen(arg));
 }
 
 void	ft_printptr(void *arg)
 {
-	ft_printhexlow(arg);
+	ft_printhexlow((int)arg);
 }
 
-void	ft_printint(void *arg, int *count)
+int	ft_printint(int arg)
 {
-	char	*c;
-
-	c = ft_itoa((intptr_t)arg);
-	*count += ft_strlen((char *) c); 
+  char *c;
+	c = ft_itoa(arg);
 	ft_putstr_fd(c, 1);
+  return(ft_strlen((char *) c));
 }
 
 

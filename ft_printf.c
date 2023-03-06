@@ -6,15 +6,13 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/02/01 12:03:25 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:27:21 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int		ft_printnext(char *str, int *i);
-void	ft_checkarg(const char c, void *arg, int *count);
-char	*ft_convert_base10_to_hex(int base10_num);
 void ft_parse_string(char *str, va_list *arg, int *count);
 /* int	ft_printf(const char *str, ...) */
 // {
@@ -58,38 +56,40 @@ void ft_parse_string(char *str, va_list *arg, int *count)
   int i;
 
   i = 0;
-  while (str)
+  while (str[i] != '\0')
   {
-    if (str[i] == '%' && str[i + 1] != '\0' /*&& ft_checkarg(str[i + 1], va_arg(arg, char *), count)*/)
+    if (str[i] == '%' && str[i + 1] != '\0')
     {
-      ft_checkarg(str[i + 1],(va_arg(*arg, char *)), count);
-      i += 2;
+      ft_check_arg(str[i+1], arg, count);
+      i ++;
     }
     else {
-      count += ft_printchar(str[i], *count);
+      ft_putchar_fd(str[i], 1);
+      *count += 1;
     }
+    i++;
   }
 }
 
-void	ft_checkarg(const char c, void *arg, int *count)
+int ft_check_arg(const char c, va_list *arg, int *count)
 {
-	if (c == 'c')
-		ft_printchar((char)arg, *count); 
-	else if (c == 's')
-		ft_printstr(arg, count);
-	else if (c == 'p')
-		ft_printptr((void *)arg);
-	else if (c == 'd')
-  ft_printptr(arg);
-	else if (c == 'i')
-		ft_printint(arg, count);
-	else if (c == 'u')
-		ft_printuint(arg);
-	else if (c == 'x')
-		ft_printhexlow(arg);
-	else if (c == 'X')
-		ft_printhexup(arg);
+  if (c == 'c')
+    *count += ft_printchar(va_arg(*arg, int));
+  if (c == 's')
+   *count += ft_printstr(va_arg(*arg, char *));
+  if (c == 'd' || c == 'i')
+    *count += ft_printint(va_arg(*arg, int));
+  if (c == 'u')
+    *count += ft_printint(va_arg(*arg, unsigned int));
+  if (c == '%')
+    *count += ft_printpercent();
+  if (c == 'X')
+    *count += ft_printhexup(va_arg(*arg, int));
+  if (c == 'x')
+    *count += ft_printhexlow(va_arg(*arg, int));
+  return *count;
 }
+
 int ft_printf(const char *str, ...)
 {
   va_list argument_list;
@@ -102,9 +102,10 @@ int ft_printf(const char *str, ...)
 }
 
 
-#include <stdio.h>
-int	main(void)
-{
-  ft_printf("Hello");
- return (0);
- }
+// #include <stdio.h>
+// int	main(void)
+// {
+//  ft_printf("%x\n", 123);
+// printf("%x", 123);
+//  return (0);
+ /* } */
