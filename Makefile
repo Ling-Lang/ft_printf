@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-BIN_NAME = ft_prinf.test
+BIN_NAME = ft_printf.test
 
 RM = rm -f
 CC = gcc
