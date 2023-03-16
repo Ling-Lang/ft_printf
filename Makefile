@@ -30,7 +30,7 @@ lft:
 
 debug: $(MANDOBJ) | lft
 	cp libft/libft.a .
-	$(CC) libft.a $(CFLAGS) $(MANDOBJ) -o $(BIN_NAME)
+	$(CC) libft.a $(CFLAGS) -g $(MANDOBJ) -o $(BIN_NAME)
 	rm libft.a
 	rm $(MANDOBJ)
 
