@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:46:44 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/13 13:00:08 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/16 21:45:33 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ char	*ft_convert_base10_to_hex_lower(int base10_num);
 void ft_check_arg(const char c, va_list *arg, int *count);
 int	ft_printchar(char arg);
 int	ft_printstr(char *arg);
-void	ft_printptr(void *arg);
+char	*convert_pointer(void *ptr);
 int	ft_printint(int arg);
+int	ft_printuint(int arg);
 int	ft_printhexlow(int arg);
 int	ft_printhexup(int arg);
 int	ft_printpercent(void);
-void print_pointer(void *ptr);
+int ft_printptr(void *ptr);
+
 #endif

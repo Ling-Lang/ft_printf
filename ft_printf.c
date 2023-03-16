@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/16 11:39:59 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/16 21:42:33 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,17 @@ void ft_check_arg(const char c, va_list *arg, int *count)
   if (c == 's')
    *count += ft_printstr(va_arg(*arg, char *));
   if (c == 'd' || c == 'i')
-    *count += ft_printstr(ft_itoa(va_arg(*arg, int)));
+    *count += ft_printint(va_arg(*arg, int));
   if (c == 'u')
-    *count += ft_printint(va_arg(*arg, unsigned int));
+    *count += ft_printuint(va_arg(*arg, unsigned int));
   if (c == '%')
     *count += ft_printpercent();
   if (c == 'X')
     *count += ft_printhexup(va_arg(*arg, int));
   if (c == 'x')
     *count += ft_printhexlow(va_arg(*arg, int));
+  if (c == 'p')
+    *count += ft_printptr(va_arg(*arg, int));
   // return *count;
 }
 
@@ -107,15 +109,18 @@ int ft_printf(const char *str, ...)
 int	main(void)
 {
   int i =10;
-  int *ptr = &i;
+  // int *ptr = &i;
   ft_printf("%%c:\t %c\n", 'c');
   ft_printf("%%s:\t %s\n", "String");
   ft_printf("%%i:\t %i\n", 123);
   ft_printf("%%d:\t %d\n", 123);
-  ft_printf("%%u:\t %u\n", 123);
+  ft_printf("%%u:\t %u\n", -123);
+  printf("%%u:\t %u\n", -123);
   ft_printf("%%x:\t %x\n", 123);
   ft_printf("%%X:\t %X\n", 123);
-  ft_printf("%%p:\t %p\n", ptr);
+  ft_printf("%%p:\t %p\n", &i);
+  printf("%%p:\t %p\n", &i);
+  
   
  return (0);
  }
