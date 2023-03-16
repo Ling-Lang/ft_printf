@@ -40,7 +40,7 @@ int	ft_printstr(char *arg)
 
 void	ft_printptr(void *arg)
 {
-	ft_printhexlow((int)arg);
+	ft_printhexlow((intptr_t)arg);
 }
 
 int	ft_printint(int arg)

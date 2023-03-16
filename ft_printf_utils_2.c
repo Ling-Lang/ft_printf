@@ -15,19 +15,25 @@
 int	ft_printhexlow(int arg)
 {
 	char	*c;
+  int len;
 
 	c = ft_convert_base10_to_hex_lower(arg);
-	ft_putstr_fd(c, 1);
-	return((int)ft_strlen(c));
+  len = ft_strlen(c);
+  ft_putstr_fd(c, 1);
+  free(c);
+	return (len);
 }
 
 int	ft_printhexup(int arg)
 {
 	char	*c;
+  int   len;
 
 	c = ft_convert_base10_to_hex(arg);
 	ft_putstr_fd(c, 1);
-	return((int)ft_strlen(c));
+  len = ft_strlen(c);
+  free(c);
+  return (len);	
 }
 
 int	ft_printpercent(void)
