@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/14 11:48:07 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/16 11:39:59 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,19 @@ int ft_printf(const char *str, ...)
 }
 
 
-// #include <stdio.h>
-// int	main(void)
-// {
-//  ft_printf("%s\n", "1231233432434134");
-//  return (0);
-//  }
+#include <stdio.h>
+int	main(void)
+{
+  int i =10;
+  int *ptr = &i;
+  ft_printf("%%c:\t %c\n", 'c');
+  ft_printf("%%s:\t %s\n", "String");
+  ft_printf("%%i:\t %i\n", 123);
+  ft_printf("%%d:\t %d\n", 123);
+  ft_printf("%%u:\t %u\n", 123);
+  ft_printf("%%x:\t %x\n", 123);
+  ft_printf("%%X:\t %X\n", 123);
+  ft_printf("%%p:\t %p\n", ptr);
+  
+ return (0);
+ }
