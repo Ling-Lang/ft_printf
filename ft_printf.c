@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/16 21:42:33 by dylan            ###   ########.fr       */
+/*   Updated: 2023/03/17 12:50:46 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void ft_check_arg(const char c, va_list *arg, int *count)
   if (c == '%')
     *count += ft_printpercent();
   if (c == 'X')
-    *count += ft_printhexup(va_arg(*arg, int));
+    *count += ft_printhexup(va_arg(*arg, unsigned int));
   if (c == 'x')
-    *count += ft_printhexlow(va_arg(*arg, int));
+    *count += ft_printhexlow(va_arg(*arg, unsigned int));
   if (c == 'p')
-    *count += ft_printptr(va_arg(*arg, int));
+    *count += ft_printptr((unsigned long)va_arg(*arg, void *));
   // return *count;
 }
 
@@ -109,7 +109,7 @@ int ft_printf(const char *str, ...)
 int	main(void)
 {
   int i =10;
-  // int *ptr = &i;
+  int *ptr = &i;
   ft_printf("%%c:\t %c\n", 'c');
   ft_printf("%%s:\t %s\n", "String");
   ft_printf("%%i:\t %i\n", 123);
@@ -118,8 +118,7 @@ int	main(void)
   printf("%%u:\t %u\n", -123);
   ft_printf("%%x:\t %x\n", 123);
   ft_printf("%%X:\t %X\n", 123);
-  ft_printf("%%p:\t %p\n", &i);
-  printf("%%p:\t %p\n", &i);
+  ft_printf("%%p:\t %p\n", ptr);
   
   
  return (0);

@@ -14,6 +14,7 @@ MAND = ft_printf.c \
 		ft_printf_utils.c \
 		ft_printf_utils_2.c \
 		ft_dectohex.c \
+		ft_iutils.c \
 
 MANDOBJ	= $(MAND:.c=.o)
 

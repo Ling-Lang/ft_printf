@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:04:14 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/16 21:45:29 by dylan            ###   ########.fr       */
+/*   Updated: 2023/03/17 12:48:23 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printhexlow(int arg)
 	char	*c;
   int len;
 
-	c = ft_convert_base10_to_hex_lower(arg);
+	c = ft_itoa_base(arg, 1);
   len = ft_strlen(c);
   ft_putstr_fd(c, 1);
   free(c);
@@ -29,7 +29,7 @@ int	ft_printhexup(int arg)
 	char	*c;
   int   len;
 
-	c = ft_convert_base10_to_hex(arg);
+	c = ft_itoa_base(arg, 0);
 	ft_putstr_fd(c, 1);
   len = ft_strlen(c);
   free(c);
@@ -56,39 +56,13 @@ int	ft_printuint(int arg)
   	return(len);
 }
 
-int ft_printptr(void *ptr)
+int ft_printptr(unsigned long ptr)
 {
   int len;
   char *str;
 
-  str = convert_pointer(ptr); 
+  str = ft_ptoa(ptr); 
   len = ft_strlen(str);
   ft_printstr(str);
   return (len);
-}
-
-#include <stdio.h>
-char	*convert_pointer(void *ptr)
-{
-	char	*hex;
-	char	*alphabet = "0123456789abcdef";
-	uintptr_t	p = (uintptr_t)ptr;
-	int		len;
-
-	len = 2 + (sizeof(p) * 2);
-	hex = (char *)malloc(len + 1);
-	if (!hex)
-		return (NULL);
-	hex[len] = '\0';
-	hex[0] = '0';
-	hex[1] = 'x';
-	len--;
-	while (len > 1)
-	{
-		hex[len] = alphabet[p % 16];
-		p /= 16;
-		len--;
-	}
-  printf(hex);
-	return (hex);
 }
