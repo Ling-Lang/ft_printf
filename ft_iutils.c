@@ -6,25 +6,25 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:26:15 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:23:16 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:40:51 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_itoa_base(unsigned long n, int low)
+char	*ft_itoa_base(unsigned long n, int low)
 {
 	size_t	len;
-	char *res;
-	char *base;
-	
+	char	*res;
+	char	*base;
+
 	if (low == 1)
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
 	len = ft_digit_len(n, 16);
 	res = ft_calloc(len + 1, sizeof(char));
-	if(!res)
+	if (!res)
 		return (NULL);
 	if (n == 0)
 		res[0] = '0';
@@ -42,57 +42,59 @@ char *ft_itoa_base(unsigned long n, int low)
 
 size_t	ft_digit_len(unsigned long n, int base)
 {
-	size_t len;
+	size_t	len;
+
 	if (n <= 0)
 		len = 1;
 	else
 		len = 0;
-	while(n)
+	while (n)
 	{
 		len++;
-		n /= base;;
+		n /= base;
 	}
 	return (len);
 }
 
-char *ft_prefix(char *prefix, char *str)
+char	*ft_prefix(char *prefix, char *str)
 {
-	char *prefixed_str;
-	
+	char	*prefixed_str;
+
 	prefixed_str = ft_strjoin(prefix, str);
 	free(str);
-	return(prefixed_str);
+	return (prefixed_str);
 }
 
-char *ft_ptoa(long n)
+char	*ft_ptoa(long n)
 {
-	char *str;
-	
+	char	*str;
+
 	str = ft_itoa_base(n, 1);
 	str = ft_prefix("0x", str);
 	return (str);
 }
 
-char *ft_uitoa(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
-    char *str;
-    int len;
-    unsigned int temp;
+	char			*str;
+	int				len;
+	unsigned int	temp;
 
-    len = 1;
-    temp = n;
-    while (temp /= 10)
-        len++;
-
-    str = (char *)malloc(len + 1);
-    if (!str)
-        return (NULL);
-
-    str[len] = '\0';
-    while (len--)
-    {
-        str[len] = n % 10 + '0';
-        n /= 10;
-    }
-    return (str);
+	len = 1;
+	temp = n;
+	while (temp > 9)
+	{
+		len++;
+		temp /= 10;
+	}
+	str = (char *)malloc(len + 1);
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	return (str);
 }

@@ -12,28 +12,28 @@
 
 #include "ft_printf.h"
 
-int ft_printhexlow(unsigned long arg)
+int	ft_printhexlow(unsigned long arg)
 {
-  int len;
-  char *str;
+	int		len;
+	char	*str;
 
-  str = ft_itoa_base(arg, 1); 
-  len = ft_strlen(str);
-  ft_printstr(str);
-  free(str);
-  return (len);
+	str = ft_itoa_base(arg, 1);
+	len = ft_strlen(str);
+	ft_printstr(str);
+	free(str);
+	return (len);
 }
 
 int	ft_printhexup(unsigned long arg)
 {
-  int len;
-  char *str;
+	int		len;
+	char	*str;
 
-  str = ft_itoa_base(arg, 0); 
-  len = ft_strlen(str);
-  ft_printstr(str);
-  free(str);
-  return (len);
+	str = ft_itoa_base(arg, 0);
+	len = ft_strlen(str);
+	ft_printstr(str);
+	free(str);
+	return (len);
 }
 
 int	ft_printpercent(void)
@@ -42,14 +42,14 @@ int	ft_printpercent(void)
 	return (1);
 }
 
-int ft_printptr(unsigned long ptr)
+int	ft_printptr(unsigned long ptr)
 {
-  int len;
-  char *str;
+	int		len;
+	char	*str;
 
-  str = ft_ptoa(ptr); 
-  len = ft_strlen(str);
-  ft_printstr(str);
-  free(str);
-  return (len);
+	str = ft_ptoa(ptr);
+	len = ft_strlen(str);
+	ft_printstr(str);
+	free(str);
+	return (len);
 }
