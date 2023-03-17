@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:26:15 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 12:46:22 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:05:42 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ char *ft_ptoa(long n)
 	char *str;
 	
 	str = ft_itoa_base(n, 1);
-	return (ft_prefix("0x", str));
+	str = ft_prefix("0x", str);
+	return (str);
 }

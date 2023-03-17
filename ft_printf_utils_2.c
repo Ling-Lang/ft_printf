@@ -6,34 +6,34 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:04:14 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 12:48:23 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:10:36 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printhexlow(int arg)
+int ft_printhexlow(unsigned long arg)
 {
-	char	*c;
   int len;
+  char *str;
 
-	c = ft_itoa_base(arg, 1);
-  len = ft_strlen(c);
-  ft_putstr_fd(c, 1);
-  free(c);
-	return (len);
+  str = ft_itoa_base(arg, 1); 
+  len = ft_strlen(str);
+  ft_printstr(str);
+  free(str);
+  return (len);
 }
 
-int	ft_printhexup(int arg)
+int	ft_printhexup(unsigned long arg)
 {
-	char	*c;
-  int   len;
+  int len;
+  char *str;
 
-	c = ft_itoa_base(arg, 0);
-	ft_putstr_fd(c, 1);
-  len = ft_strlen(c);
-  free(c);
-  return (len);	
+  str = ft_itoa_base(arg, 0); 
+  len = ft_strlen(str);
+  ft_printstr(str);
+  free(str);
+  return (len);
 }
 
 int	ft_printpercent(void)
@@ -64,5 +64,6 @@ int ft_printptr(unsigned long ptr)
   str = ft_ptoa(ptr); 
   len = ft_strlen(str);
   ft_printstr(str);
+  free(str);
   return (len);
 }

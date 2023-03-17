@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:46:44 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 12:47:42 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:10:43 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	ft_printchar(char arg);
 int	ft_printstr(char *arg);
 int	ft_printint(int arg);
 int	ft_printuint(int arg);
-int	ft_printhexlow(int arg);
-int	ft_printhexup(int arg);
+int ft_printhexlow(unsigned long arg);
+int	ft_printhexup(unsigned long arg);
 int	ft_printpercent(void);
 int ft_printptr(unsigned long ptr);
 char *ft_ptoa(long n);

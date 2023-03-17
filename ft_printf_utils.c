@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:03:08 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/16 21:35:15 by dylan            ###   ########.fr       */
+/*   Updated: 2023/03/17 13:14:56 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_printstr(char *arg)
 // 	ft_printhexlow((intptr_t)arg);
 // }
 
-int	ft_printint(int arg)
+int ft_printint (int arg)
 {
   	char *c;
 	int len;
