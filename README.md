@@ -27,5 +27,10 @@ The prototype of printf is:
 * You must use the command **ar** to create your library
     * using the **libtool** command is forbidden
 * Your **libftprintf.a** has to be created at the root of your repository
+---
 
+#### Usage
+
+> Compile using make 
+> Copy resulting libftprintf.a file in your project directory as well as the ft_printf.h file -> profit
 
