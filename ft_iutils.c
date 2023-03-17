@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:26:15 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:05:42 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:23:16 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,28 @@ char *ft_ptoa(long n)
 	str = ft_itoa_base(n, 1);
 	str = ft_prefix("0x", str);
 	return (str);
+}
+
+char *ft_uitoa(unsigned int n)
+{
+    char *str;
+    int len;
+    unsigned int temp;
+
+    len = 1;
+    temp = n;
+    while (temp /= 10)
+        len++;
+
+    str = (char *)malloc(len + 1);
+    if (!str)
+        return (NULL);
+
+    str[len] = '\0';
+    while (len--)
+    {
+        str[len] = n % 10 + '0';
+        n /= 10;
+    }
+    return (str);
 }

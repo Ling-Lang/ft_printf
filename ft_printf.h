@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:46:44 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:10:43 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:25:53 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_check_arg(const char c, va_list *arg, int *count);
 int	ft_printchar(char arg);
 int	ft_printstr(char *arg);
 int	ft_printint(int arg);
-int	ft_printuint(int arg);
+int ft_printuint(unsigned int arg);
 int ft_printhexlow(unsigned long arg);
 int	ft_printhexup(unsigned long arg);
 int	ft_printpercent(void);
@@ -33,5 +33,6 @@ char *ft_ptoa(long n);
 char *ft_prefix(char *prefix, char *str);
 size_t	ft_digit_len(unsigned long n, int base);
 char *ft_itoa_base(unsigned long n, int low);
+char *ft_uitoa(unsigned int n);
 
 #endif

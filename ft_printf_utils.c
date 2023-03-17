@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:03:08 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:14:56 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:25:00 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ int	ft_printstr(char *arg)
   return (len);
 }
 
-// void	ft_printptr(void *arg)
-// {
-// 	ft_printhexlow((intptr_t)arg);
-// }
 
 int ft_printint (int arg)
 {
@@ -54,4 +50,14 @@ int ft_printint (int arg)
   	return(len);
 }
 
+int ft_printuint(unsigned int arg)
+{
+    char *c;
+    int len;
 
+    c = ft_uitoa(arg); // Use a function that converts unsigned int to string
+    ft_printstr(c);
+    len = ft_strlen(c);
+    free(c);
+    return (len);
+}

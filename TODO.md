@@ -4,6 +4,6 @@
 * ~~Better implementation of the return counter~~
 * ~~Better implementation of the % arg~~
 * ~~Fix %iud memory leaks~~
-* Get %u to work properly
-* Make norminette conform
+* ~~Get %u to work properly~~
+* ~~Make norminette conform~~
 

@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:54:38 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:12:31 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:25:21 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,6 @@
 
 int		ft_printnext(char *str, int *i);
 void ft_parse_string(char *str, va_list *arg, int *count);
-/* int	ft_printf(const char *str, ...) */
-// {
-//   va_list	args;
-//   char	*string;
-//   int		i;
-//   int c = 0;
-//
-//   i = 0;
-//   va_start(args, str)
-//   string = va_arg(args, char *);
-//   while (str)
-//   {
-//     if (str[i] == '%')
-//     {
-//       if (str[i + 1] == '%')
-//       {
-//         if (str[i+2] != '%')
-//         {
-//           ft_printpercent();
-//           c++;
-//         }
-//         c++;
-//       }
-//       i++;
-//       ft_checkarg(str[i], string, &c);
-//       string = va_arg(args, char *);
-//       i++;
-//     }
-//     if (str[i] == '\0')
-//       return (c);
-//     ft_printnext((char *)str, &i);
-//     c++;
-//   }
-//   va_end(args);
-//   return (c);
-// }
 
 void ft_parse_string(char *str, va_list *arg, int *count)
 {
@@ -81,7 +45,7 @@ void ft_check_arg(const char c, va_list *arg, int *count)
   if (c == 'd' || c == 'i')
     *count += ft_printint(va_arg(*arg, int));
   if (c == 'u')
-    *count += ft_printint(va_arg(*arg, unsigned int));
+    *count += ft_printuint(va_arg(*arg, unsigned int));
   if (c == '%')
     *count += ft_printpercent();
   if (c == 'X')

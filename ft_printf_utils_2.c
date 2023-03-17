@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:04:14 by jkulka            #+#    #+#             */
-/*   Updated: 2023/03/17 13:10:36 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:26:49 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,6 @@ int	ft_printpercent(void)
 {
 	ft_putchar_fd('%', 1);
 	return (1);
-}
-
-int	ft_printuint(int arg)
-{
-  	char *c;
-	int len;
-
-	if (arg < 0)
-		arg *= -1;  
-	c = ft_itoa(arg);
-	ft_printstr(c);
-	len = ft_strlen(c);
-	free(c);
-  	return(len);
 }
 
 int ft_printptr(unsigned long ptr)
